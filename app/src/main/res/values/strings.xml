@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Заметки</string>
+
+    <!-- Edit Fragment strings -->
+    <string name="title_save">Сохранить</string>
+    <string name="edit_title">Заголовок:</string>
+    <string name="edit_detail">Текст заметки:</string>
+    <string name="edit_color">Цвет заметки:</string>
+    <string name="edit_image">Изображение:</string>
+    <string name="error_til">Необходимо заполнить поле</string>
+    <string name="error_create_file">Ошибка. Не удалось создать файл изображения.</string>
+    <string name="permission_denied">Операция недоступна. Недостаточно привилегий.</string>
+    <string name="attach_image">Выберите изображение:</string>
+    <string-array name="attach_array">
+        <item>Галерея</item>
+        <item>Камера</item>
+        <item>Удалить изображение</item>
+    </string-array>
+
+</resources>

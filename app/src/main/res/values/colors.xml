@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Pallet colors -->
+    <color name="palletColor1">#808080</color>
+    <color name="palletColor2">#FF0000</color>
+    <color name="palletColor3">#FF6A00</color>
+    <color name="palletColor4">#FFD800</color>
+    <color name="palletColor5">#B6FF00</color>
+    <color name="palletColor6">#4CFF00</color>
+    <color name="palletColor7">#00FFFF</color>
+    <color name="palletColor8">#0094FF</color>
+    <color name="palletColor9">#0026FF</color>
+    <color name="palletColor10">#FF00DC</color>
+    <color name="palletColor11">#FF006E</color>
+    <color name="palletColor12">#7F6A00</color>
+    <color name="palletColor13">#5B7F00</color>
+    <color name="palletColor14">#007F46</color>
+
+</resources>
