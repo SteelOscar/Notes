@@ -18,8 +18,8 @@ public interface NotesDAO {
     @Insert
     Completable insertALL(NotesEntity note);
 
-    @Delete
-    Completable delete(NotesEntity note);
+    @Query("DELETE FROM NotesEntity WHERE id=:id")
+    Completable delete(int id);
 
     @Query("UPDATE NotesEntity SET title=:title, detail=:detail, color=:color, image=:image WHERE id=:id")
     Completable update(String title, String detail, String id, String color, byte[] image);

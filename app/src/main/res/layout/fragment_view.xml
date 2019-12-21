@@ -13,13 +13,13 @@
             android:id="@+id/include_layout"
             layout="@layout/toolbar" />
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/notes_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none"
             android:layout_below="@+id/include_layout">
-        </ListView>
+        </androidx.recyclerview.widget.RecyclerView>
 
     </RelativeLayout>
 

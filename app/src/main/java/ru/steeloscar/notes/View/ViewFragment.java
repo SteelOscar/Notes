@@ -3,17 +3,21 @@ package ru.steeloscar.notes.View;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -29,6 +33,8 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
     private MainContract.ViewFragmentPresenter viewFragmentPresenter;
 
     private static ViewFragment instance;
+
+    private RecyclerView recyclerView;
 
     private ArrayList<NotesModel> values = new ArrayList<>();
     private NotesArrayAdapter adapter;
@@ -49,7 +55,32 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final Context context = getContext();
-        adapter = new NotesArrayAdapter(context, values);
+
+        NoteItemListener listener = new NoteItemListener() {
+            @Override
+            public void setOnClickListener(int position) {
+                NotesModel Note = values.get(position);
+                viewActivityInterface.onNotesItemClicked(Note.getTitle(), Note.getDetail(), Note.getDate(), position, Note.getID(), Note.getColor(), Note.getBitmap());
+            }
+
+            @Override
+            public Boolean setOnLongClickListener(int position) {
+                Bitmap imageBitmap = values.get(position).getBitmap();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                LayoutInflater layoutInflater = getActivity().getLayoutInflater();
+                View builderImageView = layoutInflater.inflate(R.layout.image_layout, null);
+                ImageView imageView = builderImageView.findViewById(R.id.view_image);
+
+                imageView.setImageBitmap(imageBitmap);
+
+                builder.setView(builderImageView).create().show();
+
+                return true;
+            }
+        };
+
+        adapter = new NotesArrayAdapter(context, listener, values);
         viewFragmentPresenter = new ViewFragmentPresenter(this, context);
         if (values.isEmpty()) viewFragmentPresenter.onRestoreDBNotes();
     }
@@ -65,10 +96,13 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_view, container, false);
-        final ListView listView = view.findViewById(R.id.notes_layout);
-        listView.setAdapter(adapter);
+        recyclerView = view.findViewById(R.id.notes_layout);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
+        recyclerView.setAdapter(adapter);
 
         View fab = view.findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,32 +110,7 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
             }
         });
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                NotesModel Note = values.get(position);
-                viewActivityInterface.onNotesItemClicked(Note.getTitle(), Note.getDetail(), Note.getDate(), position, Note.getID(), Note.getColor(), Note.getBitmap());
-            }
-        });
-
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Bitmap imageBitmap = values.get(position).getBitmap();
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                LayoutInflater layoutInflater = getActivity().getLayoutInflater();
-                View builderImageView = layoutInflater.inflate(R.layout.image_layout, null);
-                ImageView imageView = builderImageView.findViewById(R.id.view_image);
-
-                imageView.setImageBitmap(imageBitmap);
-
-                builder.setView(builderImageView).create().show();
-
-                return true;
-            }
-        });
+        setItemTouchHelpListener();
 
         return view;
     }
@@ -119,6 +128,14 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
     }
 
     @Override
+    public int deleteNotesDB(int position) {
+        int id = values.get(position).getID();
+        values.remove(position);
+        adapter.notifyDataSetChanged();
+        return id;
+    }
+
+    @Override
     public void setViewNote(String title, String detail, String date, int id, int color, Bitmap bitmap) {
         values.add(0, new NotesModel(title, detail, date, id, color, bitmap));
         adapter.notifyDataSetChanged();
@@ -133,5 +150,55 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
         Note.setColor(color);
         Note.setBitmap(bitmap);
         adapter.notifyDataSetChanged();
+    }
+
+    private void setItemTouchHelpListener() {
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                if (direction == ItemTouchHelper.LEFT) {
+                    viewFragmentPresenter.onDeleteDBNote(viewHolder.getAdapterPosition());
+                }
+            }
+
+            @Override
+            public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
+                if (viewHolder != null) {
+                    final View foregroundView = ((NotesArrayAdapter.ViewHolder) viewHolder).foregroundView;
+                    getDefaultUIUtil().onSelected(foregroundView);
+                }
+            }
+
+            @Override
+            public void onChildDrawOver(@NonNull Canvas c, @NonNull RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+                final View foregroundView = ((NotesArrayAdapter.ViewHolder) viewHolder).foregroundView;
+                getDefaultUIUtil().onDrawOver(c, recyclerView, foregroundView, dX, dY, actionState, isCurrentlyActive);
+            }
+
+            @Override
+            public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+                final View foregroundView = ((NotesArrayAdapter.ViewHolder) viewHolder).foregroundView;
+                getDefaultUIUtil().clearView(foregroundView);
+            }
+
+            @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+                final View foregroundView = ((NotesArrayAdapter.ViewHolder) viewHolder).foregroundView;
+                getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, dX, dY, actionState, isCurrentlyActive);
+            }
+
+            @Override
+            public int convertToAbsoluteDirection(int flags, int layoutDirection) {
+                return super.convertToAbsoluteDirection(flags, layoutDirection);
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 }

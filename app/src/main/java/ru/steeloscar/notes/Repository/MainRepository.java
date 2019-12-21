@@ -30,6 +30,11 @@ public class MainRepository implements MainContract.Repository {
     }
 
     @Override
+    public Completable deleteDBNote(int id, NotesDB db) {
+        return db.NotesDAO().delete(id);
+    }
+
+    @Override
     public Flowable<List<NotesEntity>> loadingDBNotes(NotesDB db) {
         return db.NotesDAO().getNotes();
     }

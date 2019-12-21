@@ -17,6 +17,7 @@ public interface MainContract {
 
     interface ViewFragment {
         void showViewFragmentNotes(ArrayList<NotesModel> Notes);
+        int deleteNotesDB(int position);
     }
 
     interface EditFragment {
@@ -28,6 +29,7 @@ public interface MainContract {
 
     interface ViewFragmentPresenter {
         void onRestoreDBNotes();
+        void onDeleteDBNote(int position);
         void destroyDisposables();
     }
 
@@ -44,6 +46,7 @@ public interface MainContract {
         Completable saveDBNotes(NotesEntity Note, NotesDB db);
         Completable updateDBNote(String[] Note, byte[] noteImage, NotesDB db);
         Completable savePreferences(SharedPreferences sharedPreferences, int id);
+        Completable deleteDBNote(int id, NotesDB db);
         Observable<Integer> loadPreferences(SharedPreferences sharedPreferences);
     }
 }

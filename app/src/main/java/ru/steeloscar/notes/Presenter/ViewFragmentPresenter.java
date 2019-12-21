@@ -8,6 +8,7 @@ import androidx.room.Room;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +50,15 @@ public class ViewFragmentPresenter implements MainContract.ViewFragmentPresenter
     }
 
     @Override
+    public void onDeleteDBNote(int position) {
+        int id = viewFragment.deleteNotesDB(position);
+        disposables.add(repository.deleteDBNote(id, db)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe());
+    }
+
+    @Override
     public void destroyDisposables() {
         disposables.dispose();
     }
@@ -64,5 +74,4 @@ public class ViewFragmentPresenter implements MainContract.ViewFragmentPresenter
 
         return NotesModels;
     }
-
 }
