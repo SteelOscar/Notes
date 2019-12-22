@@ -99,6 +99,5 @@ public class NotesArrayAdapter extends RecyclerView.Adapter<NotesArrayAdapter.Vi
     public void removeItem(int position) {
         values.remove(position);
         notifyItemRemoved(position);
-        notifyItemRangeChanged(position, values.size());
     }
 }

@@ -30,7 +30,7 @@ public class MainRepository implements MainContract.Repository {
     }
 
     @Override
-    public Completable deleteDBNote(int id, NotesDB db) {
+    public Completable deleteDBNote(String id, NotesDB db) {
         return db.NotesDAO().delete(id);
     }
 

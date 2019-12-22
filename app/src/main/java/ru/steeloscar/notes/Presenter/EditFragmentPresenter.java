@@ -76,7 +76,7 @@ public class EditFragmentPresenter implements MainContract.EditFragmentPresenter
                 .subscribeWith(new DisposableObserver<Integer>() {
                     @Override
                     public void onNext(Integer integer) {
-                        editFragment.setID(integer);
+                         editFragment.setID(integer);
                     }
 
                     @Override

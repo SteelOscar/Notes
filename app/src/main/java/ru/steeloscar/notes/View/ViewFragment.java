@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -54,7 +53,7 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final Context context = getContext();
+        Context context = getContext();
 
         NoteItemListener listener = new NoteItemListener() {
             @Override
@@ -66,6 +65,8 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
             @Override
             public Boolean setOnLongClickListener(int position) {
                 Bitmap imageBitmap = values.get(position).getBitmap();
+
+                if (imageBitmap == null) return false;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 LayoutInflater layoutInflater = getActivity().getLayoutInflater();
@@ -129,10 +130,7 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
 
     @Override
     public int deleteNotesDB(int position) {
-        int id = values.get(position).getID();
-        values.remove(position);
-        adapter.notifyDataSetChanged();
-        return id;
+        return values.get(position).getID();
     }
 
     @Override
@@ -154,6 +152,7 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
 
     private void setItemTouchHelpListener() {
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
@@ -162,7 +161,10 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 if (direction == ItemTouchHelper.LEFT) {
-                    viewFragmentPresenter.onDeleteDBNote(viewHolder.getAdapterPosition());
+                    int position = viewHolder.getAdapterPosition();
+                    //Без вызова все норм работает, как только удаляю из дб все по пизде идет, хотя удаление все таки происходит
+//                    viewFragmentPresenter.onDeleteDBNote(String.valueOf(values.get(position).getID()));
+                    adapter.removeItem(position);
                 }
             }
 
@@ -190,11 +192,6 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
             public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
                 final View foregroundView = ((NotesArrayAdapter.ViewHolder) viewHolder).foregroundView;
                 getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, dX, dY, actionState, isCurrentlyActive);
-            }
-
-            @Override
-            public int convertToAbsoluteDirection(int flags, int layoutDirection) {
-                return super.convertToAbsoluteDirection(flags, layoutDirection);
             }
         };
 

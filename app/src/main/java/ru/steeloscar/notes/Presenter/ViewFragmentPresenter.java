@@ -50,8 +50,7 @@ public class ViewFragmentPresenter implements MainContract.ViewFragmentPresenter
     }
 
     @Override
-    public void onDeleteDBNote(int position) {
-        int id = viewFragment.deleteNotesDB(position);
+    public void onDeleteDBNote(String id) {
         disposables.add(repository.deleteDBNote(id, db)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

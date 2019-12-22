@@ -1,7 +1,6 @@
 package ru.steeloscar.notes.Repository.DB.DAO;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -19,7 +18,7 @@ public interface NotesDAO {
     Completable insertALL(NotesEntity note);
 
     @Query("DELETE FROM NotesEntity WHERE id=:id")
-    Completable delete(int id);
+    Completable delete(String id);
 
     @Query("UPDATE NotesEntity SET title=:title, detail=:detail, color=:color, image=:image WHERE id=:id")
     Completable update(String title, String detail, String id, String color, byte[] image);
