@@ -101,5 +101,6 @@ public class NotesArrayAdapter extends RecyclerView.Adapter<NotesArrayAdapter.Vi
 
     public void setValues(ArrayList<NotesModel> Notes) {
         values = Notes;
+        notifyDataSetChanged();
     }
 }

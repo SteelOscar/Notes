@@ -11,75 +11,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Firebase" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa2fb731-18d4-449e-9a75-1d426d028680" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/androidTest/java/ru/steeloscar/notes/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/Contract/MainContract.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/Presenter/EditFragmentPresenter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/Presenter/ViewFragmentPresenter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/Repository/DB/DAO/NotesDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/Repository/DB/Database/NotesDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/Repository/DB/Entity/NotesEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/Repository/MainRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/Repository/SharedPreference/NotePreference.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/View/ActivityFragmentContract.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/View/EditFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/View/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/View/NoteItemListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/View/NotesArrayAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/View/NotesModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/View/Pallet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/View/PalletsArrayAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/ru/steeloscar/notes/View/ViewFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/circle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_attach_file_gray_32dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_delete_sweep_white_65dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_done_white_56dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_edit_black_24dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/separator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_edit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/image_layout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/notes_layout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/pallet_layout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/toolbar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/menu/create_note.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/xml/file_paths.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/test/java/ru/steeloscar/notes/ExampleUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../settings.gradle" beforeDir="false" />
-    </list>
+    <list default="true" id="fa2fb731-18d4-449e-9a75-1d426d028680" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +21,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="3d1b13ee" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_XL_API_29" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -102,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+            <state relative-caret-position="350">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/ViewFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
+            <state relative-caret-position="1676">
               <caret line="116" column="5" lean-forward="true" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -264,7 +196,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/PalletsArrayAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_edit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_view.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/noteListener.java" />
@@ -278,6 +209,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/Repository/MainRepository.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/NotesArrayAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/ViewFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -427,9 +359,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4986631" visible="true" weight="0.21428572" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4986631" visible="true" weight="0.21428572" />
       <window_info id="Structure" order="2" sideWeight="0.5013369" side_tool="true" weight="0.15191898" />
       <window_info id="Favorites" order="3" sideWeight="0.5013369" side_tool="true" weight="0.15191898" />
       <window_info id="Build Variants" order="4" sideWeight="0.5013369" side_tool="true" weight="0.15191898" />
@@ -440,9 +373,9 @@
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32936078" />
       <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49946696" weight="0.52437705" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49733475" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" sideWeight="0.49733475" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5026652" side_tool="true" weight="0.19826652" />
-      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49733475" visible="true" weight="0.2990249" />
+      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49733475" weight="0.2990249" />
       <window_info anchor="bottom" id="Android Profiler" order="6" sideWeight="0.49946696" weight="0.22318527" />
       <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49946696" weight="0.41603467" />
       <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.49946696" weight="0.3336945" />
@@ -759,16 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/Presenter/ViewFragmentPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -835,12 +758,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/ViewFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
+        <state relative-caret-position="1676">
           <caret line="116" column="5" lean-forward="true" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4362#4363#0" expanded="true" />
             <element signature="e#4413#4414#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/steeloscar/notes/View/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
