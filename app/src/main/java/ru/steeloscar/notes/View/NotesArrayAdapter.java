@@ -1,9 +1,6 @@
 package ru.steeloscar.notes.View;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import ru.steeloscar.notes.R;
@@ -99,5 +97,9 @@ public class NotesArrayAdapter extends RecyclerView.Adapter<NotesArrayAdapter.Vi
     public void removeItem(int position) {
         values.remove(position);
         notifyItemRemoved(position);
+    }
+
+    public void setValues(ArrayList<NotesModel> Notes) {
+        values = Notes;
     }
 }

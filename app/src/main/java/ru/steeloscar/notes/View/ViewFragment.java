@@ -124,8 +124,8 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
 
     @Override
     public void showViewFragmentNotes(ArrayList<NotesModel> Notes) {
-        values.addAll(Notes);
-        adapter.notifyDataSetChanged();
+        values = Notes;
+        adapter.setValues(values);
     }
 
     @Override
@@ -162,8 +162,7 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 if (direction == ItemTouchHelper.LEFT) {
                     int position = viewHolder.getAdapterPosition();
-                    //Без вызова все норм работает, как только удаляю из дб все по пизде идет, хотя удаление все таки происходит
-//                    viewFragmentPresenter.onDeleteDBNote(String.valueOf(values.get(position).getID()));
+                    viewFragmentPresenter.onDeleteDBNote(String.valueOf(values.get(position).getID()));
                     adapter.removeItem(position);
                 }
             }
