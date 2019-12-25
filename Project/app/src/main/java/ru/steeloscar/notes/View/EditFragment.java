@@ -36,6 +36,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -49,6 +50,7 @@ import java.util.Locale;
 import ru.steeloscar.notes.BuildConfig;
 import ru.steeloscar.notes.Contract.MainContract;
 import ru.steeloscar.notes.R;
+import ru.steeloscar.notes.Repository.DB.Database.NotesDB;
 
 
 public class EditFragment extends Fragment implements ActivityFragmentContract.ActivityEditInterface,MainContract.EditFragment {
@@ -105,7 +107,7 @@ public class EditFragment extends Fragment implements ActivityFragmentContract.A
         setHasOptionsMenu(true);
         View view =inflater.inflate(R.layout.fragment_edit, container,false);
 
-        editFragmentPresenter = new ru.steeloscar.notes.Presenter.EditFragmentPresenter(this, getContext(), settings);
+        editFragmentPresenter = new ru.steeloscar.notes.Presenter.EditFragmentPresenter(this, settings);
         noteTitle = view.findViewById(R.id.note_title);
         noteDetail = view.findViewById(R.id.note_detail);
         chosenColorCardView = view.findViewById(R.id.chosenColor);
@@ -364,6 +366,11 @@ public class EditFragment extends Fragment implements ActivityFragmentContract.A
     @Override
     public void failedCreateTempFile(){
             Toast.makeText(getContext(), getString(R.string.error_create_file), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public NotesDB createDB() {
+        return Room.databaseBuilder(getContext(), NotesDB.class,"Notes-database").build();
     }
 
     private Boolean checkTextData(){

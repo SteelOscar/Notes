@@ -17,7 +17,7 @@ public interface MainContract {
 
     interface ViewFragment {
         void showViewFragmentNotes(ArrayList<NotesModel> Notes);
-        int deleteNotesDB(int position);
+        NotesDB createDB();
     }
 
     interface EditFragment {
@@ -25,6 +25,7 @@ public interface MainContract {
         NotesModel updateNoteDB();
         void setID(int id);
         void failedCreateTempFile();
+        NotesDB createDB();
     }
 
     interface ViewFragmentPresenter {

@@ -1,11 +1,8 @@
 package ru.steeloscar.notes.Presenter;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Environment;
-
-import androidx.room.Room;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -30,12 +27,12 @@ public class EditFragmentPresenter implements MainContract.EditFragmentPresenter
     private NotesDB db;
     private SharedPreferences sharedPreferences;
 
-    public EditFragmentPresenter(MainContract.EditFragment editFragment, Context context, SharedPreferences sharedPreferences) {
+    public EditFragmentPresenter(MainContract.EditFragment editFragment, SharedPreferences sharedPreferences) {
         this.editFragment = editFragment;
         repository = MainRepository.getInstance();
         this.sharedPreferences = sharedPreferences;
         disposables = new CompositeDisposable();
-        db = Room.databaseBuilder(context, NotesDB.class,"Notes-database").build();
+        db = editFragment.createDB();
     }
 
 

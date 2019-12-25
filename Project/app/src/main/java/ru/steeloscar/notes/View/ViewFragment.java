@@ -17,13 +17,14 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import java.util.ArrayList;
 
 import ru.steeloscar.notes.Contract.MainContract;
 import ru.steeloscar.notes.Presenter.ViewFragmentPresenter;
 import ru.steeloscar.notes.R;
-
+import ru.steeloscar.notes.Repository.DB.Database.NotesDB;
 
 
 public class ViewFragment extends Fragment implements ActivityFragmentContract.ActivityViewInterface, MainContract.ViewFragment {
@@ -82,7 +83,7 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
         };
 
         adapter = new NotesArrayAdapter(context, listener, values);
-        viewFragmentPresenter = new ViewFragmentPresenter(this, context);
+        viewFragmentPresenter = new ViewFragmentPresenter(this);
         if (values.isEmpty()) viewFragmentPresenter.onRestoreDBNotes();
     }
 
@@ -129,8 +130,8 @@ public class ViewFragment extends Fragment implements ActivityFragmentContract.A
     }
 
     @Override
-    public int deleteNotesDB(int position) {
-        return values.get(position).getID();
+    public NotesDB createDB() {
+        return Room.databaseBuilder(getContext(), NotesDB.class,"Notes-database").build();
     }
 
     @Override

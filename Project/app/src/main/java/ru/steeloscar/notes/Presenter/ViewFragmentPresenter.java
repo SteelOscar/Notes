@@ -1,14 +1,10 @@
 package ru.steeloscar.notes.Presenter;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import androidx.room.Room;
-
 import org.jetbrains.annotations.NotNull;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,11 +25,11 @@ public class ViewFragmentPresenter implements MainContract.ViewFragmentPresenter
     private CompositeDisposable disposables;
     private NotesDB db;
 
-    public ViewFragmentPresenter(MainContract.ViewFragment _viewFragment, Context _context) {
-        viewFragment = _viewFragment;
+    public ViewFragmentPresenter(MainContract.ViewFragment viewFragment) {
+        this.viewFragment = viewFragment;
         repository = MainRepository.getInstance();
         disposables = new CompositeDisposable();
-        db = Room.databaseBuilder(_context, NotesDB.class,"Notes-database").build();
+        db = viewFragment.createDB();
     }
 
     @Override
